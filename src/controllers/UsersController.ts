@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { UserService } from "../services/UsersService";
+import { UsersService } from "../services/UsersService";
 
 
 class UsersController {
@@ -7,7 +7,7 @@ class UsersController {
   async create(req: Request, res: Response): Promise<Response> {
     const { email } = req.body
 
-    const userService = new UserService()
+    const userService = new UsersService()
 
     try {
       const user = await userService.create(email)

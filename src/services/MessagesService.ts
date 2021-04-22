@@ -3,7 +3,7 @@ import { Message } from "../entities/Message"
 import { MessagesRepository } from "../repositories/MessagesRepository"
 
 interface IMessageCreate{
-  admin_id: string;
+  admin_id?: string;
   text: string;
   user_id: string;
 }
@@ -15,7 +15,7 @@ class MessageService {
     this.messagesRepository = getCustomRepository(MessagesRepository)
   }
 
-  async create({ admin_id, text, user_id} : IMessageCreate){
+  async create({ admin_id, text, user_id } : IMessageCreate){
     const message = this.messagesRepository.create({ 
       admin_id,
       text,
